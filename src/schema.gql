@@ -6,4 +6,5 @@ type Query {
   """Hola mundo retorna"""
   hello: String!
   randomNUmber: Float!
+  randomFromZeroTo: Float!
 }
