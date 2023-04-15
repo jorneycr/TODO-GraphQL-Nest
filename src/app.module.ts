@@ -6,6 +6,7 @@ import { HelloWorldModule } from './hello-world/hello-world.module';
 import {
   ApolloServerPluginLandingPageLocalDefault
 } from 'apollo-server-core';
+import { TodoModule } from './todo/todo.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import {
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
     HelloWorldModule,
+    TodoModule,
   ],
   controllers: [],
   providers: [],
