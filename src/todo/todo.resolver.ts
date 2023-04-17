@@ -22,12 +22,11 @@ export class TodoResolver {
         return this.todoService.findOne(id);
     }
 
-    @Mutation(()=> Todo, { name: 'createTodo'})
+    @Mutation(() => Todo, { name: 'createTodo' })
     createTodo(
         @Args('createTodoInput') createTodoInput: CreateTodoInput
     ) {
-        
-        return [];
+        return this.todoService.createTodo(createTodoInput);
     }
 
     updateTodo() {

@@ -16,17 +16,18 @@ export class TodoService {
         return this.todos;
     }
 
-    findOne(id: number): Todo{
-        const todo = this.todos.find( todo => todo.id === id);
-        if(!todo) throw new NotFoundException(`This todo doesn't exist => ${id}`);
+    findOne(id: number): Todo {
+        const todo = this.todos.find(todo => todo.id === id);
+        if (!todo) throw new NotFoundException(`This todo doesn't exist => ${id}`);
         return todo;
     }
 
-    createTodo( createTodoInput: CreateTodoInput): Todo{
+    createTodo(createTodoInput: CreateTodoInput): Todo {
         const todo = new Todo();
         todo.description = createTodoInput.description;
         todo.done = false;
-        todo.id = 5;
+        todo.id = Math.max(...this.todos.map(todo => todo.id), 0) + 1;
+        this.todos.push(todo);
         return todo;
     }
 }
