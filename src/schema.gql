@@ -16,4 +16,14 @@ type Query {
   """From zero to (default 6)"""
   randomFromZeroTo(to: Int): Int!
   todos: [Todo!]!
+  todo(id: Int!): Todo!
+}
+
+type Mutation {
+  createTodo(createTodoInput: CreateTodoInput!): Todo!
+}
+
+input CreateTodoInput {
+  """Need to be done"""
+  description: String!
 }
