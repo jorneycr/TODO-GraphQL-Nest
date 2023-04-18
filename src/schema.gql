@@ -9,19 +9,14 @@ type Todo {
 }
 
 type Query {
-  """Hola mundo retorna"""
-  hello: String!
-  randomNUmber: Float!
-
-  """From zero to (default 6)"""
-  randomFromZeroTo(to: Int): Int!
-  todos: [Todo!]!
+  todos(status: Boolean): [Todo!]!
   todo(id: Int!): Todo!
 }
 
 type Mutation {
   createTodo(createTodoInput: CreateTodoInput!): Todo!
   updateTodo(updateTodoInput: UpdateTodoInput!): Todo!
+  removeTodo(id: Int!): Boolean!
 }
 
 input CreateTodoInput {

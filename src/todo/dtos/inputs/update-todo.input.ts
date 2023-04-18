@@ -19,5 +19,6 @@ export class UpdateTodoInput {
     @Field(() => Boolean, { nullable: true })
     @IsOptional()
     @IsBoolean()
+    @IsOptional()
     done?: boolean;
 }
