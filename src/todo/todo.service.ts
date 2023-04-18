@@ -14,6 +14,20 @@ export class TodoService {
         { id: 4, description: "Piedra del Mente", done: true },
     ]
 
+    get totalTodos(){
+        return  this.todos.length;
+    }
+
+    get completedTodos(){
+        const completedTodos = this.todos.filter( todo => todo.done === true);
+        return completedTodos.length;
+    }
+
+    get pendingTodos(){
+        const pendingTodos = this.todos.filter( todo => todo.done === false);
+        return pendingTodos.length;
+    }
+
     findAll(statusArgs: StatusArgs): Todo[] {
         const { status } = statusArgs;
         if (status !== undefined) return this.todos.filter(todo => todo.done === status);
